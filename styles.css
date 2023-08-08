@@ -19,19 +19,22 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: 20px;
+    gap: 10px; /* Adjusted gap */
     justify-content: center;
 }
 
 .card {
-    flex: 0 0 calc(25% - 20px); /* 4 cards per row by default */
-    height: 150px;
+    flex: 0 0 calc(20% - 10px); /* 5 cards per row by default for larger screens */
     width: 150px;
+    aspect-ratio: 1; /* Ensures the card remains square */
+    margin: 5px; /* Adjusted margin */
+    perspective: 1000px;
+    cursor: pointer;
 }
 
 .card-back, .card-front {
-    height: 150px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
     position: absolute;
     backface-visibility: hidden;
     display: flex;
@@ -129,8 +132,16 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Adjust for medium screens */
+@media (max-width: 900px) and (min-width: 601px) {
+    .card {
+        flex: 0 0 calc(25% - 10px); /* 3 cards per row on medium screens */
+    }
+}
+
+/* Adjust for smaller screens */
 @media (max-width: 600px) {
     .card {
-        flex: 0 0 calc(50% - 20px); /* 2 cards per row on smaller screens */
+        flex: 0 0 calc(50% - 10px); /* 2 cards per row on smaller screens */
     }
 }

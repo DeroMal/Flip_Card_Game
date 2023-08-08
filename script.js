@@ -82,16 +82,39 @@ function shuffleCards () {
   cardsArray.forEach(card => gameBoard.appendChild(card))
 }
 
-function adjustLayout () {
-  cards = document.querySelectorAll('.card')
-  totalCards = cards.length
-  let sideLength = Math.ceil(Math.sqrt(totalCards))
-  let cardWidth = 100 / sideLength
+// function adjustLayout () {
+//   cards = document.querySelectorAll('.card')
+//   totalCards = cards.length
+//   let sideLength = Math.ceil(Math.sqrt(totalCards))
+//   let cardWidth = 100 / sideLength
+
+//   cards.forEach(card => {
+//     card.style.flex = `1 0 calc(${cardWidth}% - 10px)`
+//   })
+// }
+function adjustLayout() {
+  cards = document.querySelectorAll('.card');
+  totalCards = cards.length;
+
+  // Calculate the number of columns based on the total number of cards
+  let columns;
+  if (totalCards <= 4) {
+      columns = 2;
+  } else if (totalCards <= 9) {
+      columns = 3;
+  } else if (totalCards <= 16) {
+      columns = 4;
+  } else {
+      columns = Math.ceil(Math.sqrt(totalCards));
+  }
+
+  let cardWidth = 100 / columns;
 
   cards.forEach(card => {
-    card.style.flex = `1 0 calc(${cardWidth}% - 10px)`
-  })
+      card.style.flex = `0 0 calc(${cardWidth}% - 10px)`;
+  });
 }
+
 
 function attachCardListeners () {
   cards.forEach(card => {
