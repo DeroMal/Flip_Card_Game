@@ -145,6 +145,18 @@ button:hover {
     background-color: #ff407d;
 }
 
+/* Define grid layouts based on classes */
+.game-board.layout-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.game-board.layout-6 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.game-board.layout-12 {
+    grid-template-columns: repeat(4, 1fr);
+}
 
 /* ... KeyFrames ... */
 @keyframes pulsate {
@@ -161,17 +173,21 @@ button:hover {
         opacity: 0.9;
     }
 }
-
-/* Adjust for medium screens */
+/* ... Media Queries ... */
 @media (max-width: 700px) and (min-width: 601px) {
-    .card {
-        flex: 0 0 calc(25% - 10px); /* 3 cards per row on medium screens */
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Adjust for smaller screens */
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 400px) {
-    .card {
-        flex: 0 0 calc(50% - 10px); /* 2 cards per row on smaller screens */
+    .game-board {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

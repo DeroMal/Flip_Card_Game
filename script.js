@@ -83,16 +83,6 @@ function shuffleCards () {
 }
 
 /*... Adjust Card LayOut ...*/ 
-// function adjustLayout () {
-//   cards = document.querySelectorAll('.card')
-//   totalCards = cards.length
-//   let sideLength = Math.ceil(Math.sqrt(totalCards))
-//   let cardWidth = 100 / sideLength
-
-//   cards.forEach(card => {
-//     card.style.flex = `1 0 calc(${cardWidth}% - 10px)`
-//   })
-// }
 // function adjustLayout() {
 //   cards = document.querySelectorAll('.card');
 //   totalCards = cards.length;
@@ -107,17 +97,34 @@ function shuffleCards () {
 //       card.style.flex = `1 0 calc(${cardWidth}% - 10px)`;
 //   });
 // }
+// function adjustLayout() {
+//   cards = document.querySelectorAll('.card');
+//   totalCards = cards.length;
+//   let columns = Math.ceil(Math.sqrt(totalCards));
+//   let rows = Math.ceil(totalCards / columns);
+
+//   let gameBoard = document.querySelector('.game-board');
+//   gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+
+//   console.log(`Rows: ${rows}, Columns: ${columns}`);
+// }
 function adjustLayout() {
   cards = document.querySelectorAll('.card');
   totalCards = cards.length;
   let columns = Math.ceil(Math.sqrt(totalCards));
-  let rows = Math.ceil(totalCards / columns);
 
   let gameBoard = document.querySelector('.game-board');
-  gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-
-  console.log(`Rows: ${rows}, Columns: ${columns}`);
+  
+  // Check if the viewport width is larger than our largest breakpoint (700px in this case)
+  if (window.innerWidth > 700) {
+    gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+  } else {
+    gameBoard.style.gridTemplateColumns = ""; // Reset to default so media queries can take over
+  }
 }
+
+// Add an event listener to adjust the layout when the window is resized
+window.addEventListener('resize', adjustLayout);
 
 //................................................................
 
