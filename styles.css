@@ -30,6 +30,7 @@ body {
 }
 
 .card {
+    box-sizing: border-box;
     /*flex: 0 0 calc(20% - 10px); /* 5 cards per row by default for larger screens */
     height: 150px;
     width: 150px;
@@ -208,3 +209,17 @@ button:hover {
     }
 }
 
+@media (max-width: 700px) {
+    .card {
+        width: 100px; /* Assuming a gap of 10px between cards */
+        height: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        width: 100px;
+        height: 100px
+        /* You might need to adjust other styles here, like reducing font sizes or image sizes */
+    }
+}
