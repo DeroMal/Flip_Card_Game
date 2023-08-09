@@ -16,7 +16,8 @@ body {
 }
 
 .game-board {
-    display: flex;
+    /* display: flex; */
+    display: grid;
     flex-wrap: wrap;
     width: 100%;
     gap: 10px; /* Adjusted gap */
@@ -24,12 +25,13 @@ body {
 }
 
 .card {
-    flex: 0 0 calc(20% - 10px); /* 5 cards per row by default for larger screens */
+    /*flex: 0 0 calc(20% - 10px); /* 5 cards per row by default for larger screens */
+    height: 150px;
     width: 150px;
-    aspect-ratio: 1; /* Ensures the card remains square */
     margin: 5px; /* Adjusted margin */
     perspective: 1000px;
     cursor: pointer;
+    /*aspect-ratio: 1; /* Ensures the card remains square */
 }
 
 .card-back, .card-front {

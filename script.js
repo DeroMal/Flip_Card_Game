@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   showIntroModal()
   generateCards(pairs)
   shuffleCards()
-  // adjustLayout()
+  adjustLayout()
   attachCardListeners()
 
   const replayButton = document.getElementById('replay')
@@ -101,11 +101,25 @@ function shuffleCards () {
 
 //   let cardWidth = 100 / columns;
 
+//   console.log(`Rows: ${rows}, Columns: ${columns}`); // Add this line
+
 //   cards.forEach(card => {
 //       card.style.flex = `1 0 calc(${cardWidth}% - 10px)`;
 //   });
 // }
+function adjustLayout() {
+  cards = document.querySelectorAll('.card');
+  totalCards = cards.length;
+  let columns = Math.ceil(Math.sqrt(totalCards));
+  let rows = Math.ceil(totalCards / columns);
 
+  let gameBoard = document.querySelector('.game-board');
+  gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+
+  console.log(`Rows: ${rows}, Columns: ${columns}`);
+}
+
+//................................................................
 
 function attachCardListeners () {
   cards.forEach(card => {
