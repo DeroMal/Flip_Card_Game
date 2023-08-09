@@ -26,6 +26,7 @@ body {
     width: fit-content;
     gap: 10px; /* Adjusted gap */
     justify-content: center;
+    grid-template-columns: repeat(3, 1fr); /* Ensure a minimum of 3 columns */
 }
 
 .card {
@@ -178,7 +179,7 @@ button:hover {
     }
 }
 /* ... Media Queries ... */
-@media (max-width: 700px) and (min-width: 601px) {
+/* @media (max-width: 700px) and (min-width: 601px) {
     .game-board {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -194,4 +195,16 @@ button:hover {
     .game-board {
         grid-template-columns: repeat(1, 1fr);
     }
+} */
+@media (min-width: 601px) {
+    .game-board {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+    }
 }
+
+@media (min-width: 801px) {
+    .game-board {
+        grid-template-columns: repeat(5, 1fr); /* 5 columns for larger screens */
+    }
+}
+
