@@ -1,25 +1,29 @@
 body {
     margin: 0;
+    padding: 20px 0; /* Add padding to the top and bottom */
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     background-color: #f0f0f0;
+    overflow: auto; /* Allow scrolling if content overflows */
 }
 
 .game-container {
+    position: relative;
+    top: 50%; /* Move the top edge to the center of the viewport */
+    transform: translateY(-50%); /* Shift it up by half its height */
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    max-width: 600px;
+    width: fit-content;
+    max-width: 100%;
 }
 
 .game-board {
     /* display: flex; */
     display: grid;
     flex-wrap: wrap;
-    width: 100%;
+    width: fit-content;
     gap: 10px; /* Adjusted gap */
     justify-content: center;
 }
