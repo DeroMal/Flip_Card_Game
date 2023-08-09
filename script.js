@@ -115,7 +115,6 @@ function adjustLayout() {
   });
 }
 
-
 function attachCardListeners () {
   cards.forEach(card => {
     card.addEventListener('click', () => {
