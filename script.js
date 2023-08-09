@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   showIntroModal()
   generateCards(pairs)
   shuffleCards()
-  adjustLayout()
+  // adjustLayout()
   attachCardListeners()
 
   const replayButton = document.getElementById('replay')
@@ -82,6 +82,7 @@ function shuffleCards () {
   cardsArray.forEach(card => gameBoard.appendChild(card))
 }
 
+/*... Adjust Card LayOut ...*/ 
 // function adjustLayout () {
 //   cards = document.querySelectorAll('.card')
 //   totalCards = cards.length
@@ -92,28 +93,19 @@ function shuffleCards () {
 //     card.style.flex = `1 0 calc(${cardWidth}% - 10px)`
 //   })
 // }
-function adjustLayout() {
-  cards = document.querySelectorAll('.card');
-  totalCards = cards.length;
+// function adjustLayout() {
+//   cards = document.querySelectorAll('.card');
+//   totalCards = cards.length;
+//   let columns = Math.ceil(Math.sqrt(totalCards));
+//   let rows = Math.ceil(totalCards / columns);
 
-  // Calculate the number of columns based on the total number of cards
-  let columns;
-  if (totalCards <= 4) {
-      columns = 2;
-  } else if (totalCards <= 9) {
-      columns = 3;
-  } else if (totalCards <= 16) {
-      columns = 4;
-  } else {
-      columns = Math.ceil(Math.sqrt(totalCards));
-  }
+//   let cardWidth = 100 / columns;
 
-  let cardWidth = 100 / columns;
+//   cards.forEach(card => {
+//       card.style.flex = `1 0 calc(${cardWidth}% - 10px)`;
+//   });
+// }
 
-  cards.forEach(card => {
-      card.style.flex = `0 0 calc(${cardWidth}% - 10px)`;
-  });
-}
 
 function attachCardListeners () {
   cards.forEach(card => {
